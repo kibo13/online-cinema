@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    NAVBAR
-    <router-view />
+    <Header />
+    <main class="main">
+      <div class="container">
+        <router-view />
+      </div>
+    </main>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
+
 export default {
-  name: 'App'
+  name: 'App',
+
+  components: {
+    Header
+  }
 }
 </script>

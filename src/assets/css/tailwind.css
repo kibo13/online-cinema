@@ -1,3 +1,86 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-main {
+  @apply bg-gray-100;
+}
+
+.header {
+  @apply border-b;
+}
+
+.container {
+  margin: 0 auto;
+  @apply px-2 md:px-10;
+}
+
+.title {
+  @apply relative my-5 sm:text-2xl font-semibold;
+}
+
+.nav {
+  @apply flex justify-between items-center h-16;
+}
+
+.nav-logo {
+  @apply flex items-center uppercase text-xl font-semibold tracking-wide;
+}
+
+.nav-sign {
+  @apply h-8 w-16 text-sm border border-black hover:bg-black hover:text-white rounded slow-effect;
+}
+
+.film-list {
+  @apply grid md:grid-cols-3 gap-5 text-gray-50;
+}
+
+.film-card {
+  @apply relative rounded shadow overflow-hidden;
+}
+
+.film-card__img {
+  @apply w-full h-full;
+}
+
+.film-card__title {
+  @apply absolute bottom-0 left-0 w-full px-6 py-3 bg-black bg-opacity-50;
+}
+
+.film-card__rating {
+  @apply absolute top-0 right-0 flex justify-center items-center w-12 h-8 text-sm rounded-bl bg-blue-500 shadow-md;
+}
+
+.film-card__link {
+  @apply absolute inset-0 flex justify-center items-center transform opacity-0 scale-100 hover:opacity-100 hover:scale-125 hover:bg-black hover:bg-opacity-70 slow-effect;
+}
+
+.film-title {
+  @apply py-1 title;
+}
+
+.film-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #2676ff 0%, rgba(0, 0, 0, 0) 90%);
+}
+
+.film-subtitle {
+  @apply my-3;
+}
+
+.film-subtitle p:nth-child(1) {
+  @apply font-semibold text-blue-500;
+}
+
+.film-subtitle p:nth-child(2) {
+  @apply text-sm md:text-base;
+}
+
+.slow-effect {
+  @apply transition duration-300 ease-in-out;
+}
