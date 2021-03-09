@@ -1,50 +1,62 @@
 <template>
-  <section class="film">
-    <h1 class="film-title text-md">{{ film.title }}</h1>
+  <section class="section">
+    <h3 class="title text-md">{{ film.title }}</h3>
+
+    <hr class="line" />
+
     <img class="w-full" :src="film.img" :alt="film.title" />
-    <div class="film-subtitle my-2">
-      <p>Немного о сюжете:</p>
-      <p>{{ film.description }}</p>
+
+    <div class="my-2">
+      <p class="film-subtitle">Немного о сюжете:</p>
+      <p class="film-text">{{ film.description }}</p>
     </div>
-    <div class="film-subtitle my-2">
-      <p>Рейтинг:</p>
-      <p>{{ film.rating }}</p>
+    <div class="my-2">
+      <p class="film-subtitle">Рейтинг:</p>
+      <p class="film-text">{{ film.rating }}</p>
     </div>
 
-    <div class="film-subtitle my-2">
-      <p>Актёрский состав:</p>
-      <p>{{ film.actors.join(', ') }}</p>
+    <div class="my-2">
+      <p class="film-subtitle">Актёрский состав:</p>
+      <p class="film-text">{{ film.actors.join(', ') }}</p>
     </div>
 
-    <div class="film-subtitle my-2">
-      <p>Режиссеры:</p>
-      <p>{{ film.directors.join(', ') }}</p>
+    <div class="my-2">
+      <p class="film-subtitle">Режиссеры:</p>
+      <p class="film-text">{{ film.directors.join(', ') }}</p>
+    </div>
+
+    <hr class="line" />
+
+    <h3 class="title text-md">Смотрели данный фильм?</h3>
+
+    <div class="my-2">
+      <p class="film-subtitle">Оставьте отзыв:</p>
+      <ul class="film-control">
+        <li v-for="reaction in reactions" :key="reaction.id">
+          <button class="film-btn">
+            {{ reaction.title }}
+          </button>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
 
 <script>
-import films from '@/store/db'
+import {mapState} from 'vuex'
 
 export default {
-  name: 'Home',
+  name: 'Film',
 
   computed: {
+    ...mapState({
+      reactions: state => state.reactions.data,
+      films: state => state.films.data
+    }),
+
     film() {
-      return films.find(film => film.id == this.$route.params.id)
+      return this.films.find(film => film.id == this.$route.params.id)
     }
   }
-  // data() {
-  //   return {
-  //     film: null
-  //   }
-  // },
-
-  // created() {
-  //   const film = films.find(film => film.id == this.$route.params.id)
-  //   if (film) {
-  //     this.film = film
-  //   }
-  // }
 }
 </script>

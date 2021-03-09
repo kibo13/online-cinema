@@ -1,6 +1,6 @@
 <template>
-  <section class="films">
-    <h1 class="title text-md">Выбери фильм на свой вкус</h1>
+  <section class="section">
+    <h1 class="mb-5 title text-md">Выбери фильм на свой вкус</h1>
     <ul class="film-list">
       <li class="film-card" v-for="film in films" :key="film.id">
         <img class="film-card__img" :src="film.img" :alt="film.title" />
@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import films from '@/store/db'
+import {mapState} from 'vuex'
 
 export default {
   name: 'Home',
-  data() {
-    return {
-      films
-    }
+  computed: {
+    ...mapState({
+      films: state => state.films.data
+    })
   }
 }
 </script>

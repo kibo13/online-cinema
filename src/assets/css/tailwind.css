@@ -15,8 +15,12 @@
   @apply px-2 md:px-10;
 }
 
+.section {
+  @apply py-5;
+}
+
 .title {
-  @apply relative my-5 sm:text-2xl font-semibold;
+  @apply sm:text-2xl font-semibold;
 }
 
 .nav {
@@ -28,7 +32,7 @@
 }
 
 .nav-sign {
-  @apply h-8 w-16 text-sm border border-black hover:bg-black hover:text-white rounded slow-effect;
+  @apply h-8 w-16 btn;
 }
 
 .film-list {
@@ -55,30 +59,30 @@
   @apply absolute inset-0 flex justify-center items-center transform opacity-0 scale-100 hover:opacity-100 hover:scale-125 hover:bg-black hover:bg-opacity-70 slow-effect;
 }
 
-.film-title {
-  @apply py-1 title;
-}
-
-.film-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, #2676ff 0%, rgba(0, 0, 0, 0) 90%);
-}
-
 .film-subtitle {
-  @apply my-3;
+  @apply text-sm md:text-base font-semibold text-blue-500;
 }
 
-.film-subtitle p:nth-child(1) {
-  @apply font-semibold text-blue-500;
-}
-
-.film-subtitle p:nth-child(2) {
+.film-text {
   @apply text-sm md:text-base;
+}
+
+.film-control {
+  @apply my-1 grid sm:grid-flow-col auto-cols-max gap-2;
+}
+
+.film-btn {
+  @apply px-2 py-1 btn;
+}
+
+.btn {
+  @apply text-sm border border-black hover:bg-black hover:text-white rounded slow-effect;
+}
+
+.line {
+  margin-bottom: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, #2676ff 0%, rgba(0, 0, 0, 0) 90%);
 }
 
 .slow-effect {

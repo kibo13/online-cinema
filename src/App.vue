@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 import Header from '@/components/Header'
 
 export default {
@@ -17,6 +18,15 @@ export default {
 
   components: {
     Header
+  },
+
+  methods: {
+    ...mapActions(['getFilms', 'getReactions'])
+  },
+
+  created() {
+    this.getFilms(1000)
+    this.getReactions(1000)
   }
 }
 </script>
